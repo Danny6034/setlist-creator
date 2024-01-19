@@ -1,26 +1,47 @@
+
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <v-app class="app">
+      <HomeIcon @request="requestOAuth()"/>
+      <PlaylistHeader/>
+      <Menu/>
+    <PlaylistCard @click="onPageLoad()"/>
+  </v-app>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import * as auth from "./api/auth.js";
+
+import HomeIcon from './components/HomeIcon.vue'
+import PlaylistCard from './components/PlaylistCard.vue'
+import Menu from './components/Menu.vue'
+import PlaylistHeader from './components/PlaylistHeader.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HomeIcon,
+    PlaylistHeader,
+    PlaylistCard,
+    Menu
+  },
+  methods: {
+    requestOAuth() {
+      auth.requestOAuth();
+    },
+    onPageLoad() {
+      auth.onPageLoad();
+    }
+
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.app {
+  background-color: #CDD6DD;
 }
 </style>
+
