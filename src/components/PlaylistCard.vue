@@ -10,12 +10,12 @@
         <v-container class="my-5" v-if="this.playlists !== null">
             <v-layout row wrap>
                 <v-flex xs12 sm6 md4 lg3 v-for="playlist in playlists.items" :key="playlist.name">
-                    <v-card theme="dark" variant="elevated" width=330px height=180px class="playlistcard text-xs-center ma-3"> 
+                    <v-card theme="dark" variant="elevated" width=330px height=180px class="playlistcard text-xs-center ma-3" hover> 
                         <v-row>
                             <v-col cols="5">
                         <v-responsive class="pt-4">
                             <v-avatar size="100" class="ml-4">
-                                <v-img :src="playlist.images[0].url"></v-img>
+                                <v-img></v-img>
                             </v-avatar>
                         </v-responsive>
                             </v-col>
@@ -31,7 +31,7 @@
                             </v-col>
                         </v-row>
                         <v-card-actions>
-                            <v-btn color="gray">
+                            <v-btn color="gray" @click="createSetlist(playlist)">
                                 <v-icon small left icon="mdi-headphones"/>
                                 <span> Create Setlist </span>
                             </v-btn>
@@ -66,6 +66,16 @@ export default {
       if (storedPlaylists) {
         this.playlists = JSON.parse(storedPlaylists);
       }
+    },
+    createSetlist(playlist) {
+
+        var nname = playlist.name;
+        console.log(nname);
+        //request Playlist Json from name or Id.
+        //Sort tracks by bpm and mood and save to object.
+        //View in webapp
+        //POST to spotify
+        
     }
   }
 

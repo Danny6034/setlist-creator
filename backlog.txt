@@ -1,5 +1,8 @@
--- Conditional render PlaylistCards (only show when user is logged in)
 
 -- Finish OAuth + Spotify API Calls
 
 --Move API calls and related functions to separate .js file
+
+--shorten playlist description
+
+--save user and playlist information in localstorage and then retrieve with python

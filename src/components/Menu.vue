@@ -1,6 +1,5 @@
 <template>
 <div class="menu">
-    <v-btn class="custom-button" @click="refreshUserInfo"> Get User Info </v-btn>
     <v-btn class="custom-button"  @click="refreshPlaylists"> Get Playlists </v-btn>
 </div>
 </template>
@@ -10,9 +9,6 @@ import * as auth from "../api/auth.js";
 
 export default {
   methods: {
-    refreshUserInfo() {
-      auth.refreshUserInfo();
-    },
     refreshPlaylists() {
         auth.refreshPlaylists();
     }

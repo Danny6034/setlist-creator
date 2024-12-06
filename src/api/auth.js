@@ -1,6 +1,6 @@
 
-var client_secret = 'YOUR_CLIENT_SECRET'; //From Your Spotify App
-var client_id = 'YOUR_CLIENT_ID'; //From Your Spotify App
+var client_secret = 'd038a0131b3d49c6827ef7e9e3b04695'; //From Your Spotify App
+var client_id = 'd41c77d633b54bdb8ab313c6490977a2'; //From Your Spotify App
 const redirect_uri = "http://localhost:8080/"; //This must match the redirect URI you setup in your App on the Spotify API Dashboard.
 
 var access_token = null;
@@ -103,10 +103,6 @@ function handleAuthorizationResponse() {
         console.log(this.responseText);
         alert(this.responseText);
     }
-}
-
-export function refreshUserInfo() {
-    callApi("GET", USER, null, handleUserResponse)
 }
 
 function handleUserResponse() {
