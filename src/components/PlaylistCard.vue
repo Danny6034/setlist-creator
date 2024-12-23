@@ -10,7 +10,7 @@
         <v-container class="my-5" v-if="this.playlists !== null">
             <v-layout row wrap>
                 <v-flex xs12 sm6 md4 lg3 v-for="playlist in playlists.items" :key="playlist.name">
-                    <v-card theme="dark" variant="elevated" width=330px height=180px class="playlistcard text-xs-center ma-3" hover> 
+                    <v-card @click="this.createSetlist(playlist.id)" theme="dark" variant="elevated" width=330px height=180px class="playlistcard text-xs-center ma-3" hover> 
                         <v-row>
                             <v-col cols="5">
                         <v-responsive class="pt-4">
@@ -46,7 +46,6 @@
 </template>
 
 <script>
-
 export default {
     data() {
     return {
@@ -69,8 +68,11 @@ export default {
     },
     createSetlist(playlist) {
 
-        var nname = playlist.name;
+        var playlistToUse = this.playlists.items.find(item => item.id = playlist)
+
+        var nname = playlistToUse.name;
         console.log(nname);
+
         //request Playlist Json from name or Id.
         //Sort tracks by bpm and mood and save to object.
         //View in webapp
